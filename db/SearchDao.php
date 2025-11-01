@@ -5,6 +5,7 @@ namespace nova\plugin\fullsearch\db;
 use nova\plugin\fullsearch\QueryChinese;
 use nova\plugin\orm\object\Dao;
 use nova\plugin\orm\operation\InsertOperation;
+use function nova\framework\dump;
 
 /**
  * 全文搜索数据访问对象
@@ -80,7 +81,7 @@ class SearchDao extends Dao
             ->commit();
 
         return array_map(function ($row) {
-            return $row['content'];
+            return $row->content;
         }, $queryResults);
     }
 
